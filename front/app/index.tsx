@@ -1,18 +1,44 @@
-import { Text, View } from "react-native";
-import { verifyInstallation } from "nativewind";
-import "../global.css";
-import "expo-router/entry";
+import { Text, View, StyleSheet } from "react-native";
+import { Link } from "expo-router";
 
 export default function Index() {
-  // Esto verificará si NativeWind está instalado correctamente
-  // y mostrará mensajes en la consola
-  verifyInstallation();
-
   return (
-    <View className="flex-1 justify-center items-center bg-white">
-      <Text className="text-xl font-bold text-blue-500">
-        ¡NativeWind está funcionando!
+    <View style={styles.container}>
+      <Text style={styles.title}>
+        Welcome
       </Text>
+      
+      <Link href="/details" style={styles.button}>
+        <Text style={styles.buttonText}>
+          Greetings
+        </Text>
+      </Link>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'white',
+    padding: 16,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#3b82f6',
+    marginBottom: 32,
+  },
+  button: {
+    backgroundColor: '#3b82f6',
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    borderRadius: 8,
+  },
+  buttonText: {
+    color: 'white',
+    fontWeight: '500',
+  }
+});
